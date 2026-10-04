@@ -1,0 +1,32 @@
+{
+  "prediction_correlation_matrix": {
+    "v14_vs_lgb": 0.9890125657956125,
+    "v14_vs_xgb": 0.9888480819857348,
+    "lgb_vs_xgb": 0.9981891362747206
+  },
+  "residual_correlation_matrix": {
+    "v14_vs_lgb": 0.9960192597369923,
+    "v14_vs_xgb": 0.9959603693424567,
+    "lgb_vs_xgb": 0.9993425562068947
+  },
+  "per_fold_correlations": [
+    {
+      "fold": 1,
+      "v14_lgb_corr": 0.9864582548733108,
+      "v14_xgb_corr": 0.9863018828652116,
+      "lgb_xgb_corr": 0.997662779182743
+    },
+    {
+      "fold": 2,
+      "v14_lgb_corr": 0.9886188120949615,
+      "v14_xgb_corr": 0.9887320701506191,
+      "lgb_xgb_corr": 0.9982735094611391
+    },
+    {
+      "fold": 3,
+      "v14_lgb_corr": 0.9922864223592612,
+      "v14_xgb_corr": 0.9916452646572728,
+      "lgb_xgb_corr": 0.9986943373842707
+    }
+  ]
+}

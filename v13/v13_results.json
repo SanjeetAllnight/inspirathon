@@ -1,0 +1,124 @@
+{
+  "campaign": "V13 Diagnostic & Discovery Campaign",
+  "baseline_v9": {
+    "mean_cv": 0.86824,
+    "folds": [0.87059, 0.86258, 0.87154],
+    "public_lb": 0.8682026537,
+    "feature_count": 90,
+    "model": "88% CatBoost Depth 4 5-seed ensemble + 12% regularized Logistic Regression"
+  },
+  "phase_b_depth_diagnostic": {
+    "depth_1_stumps": {
+      "mean_cv": 0.86393,
+      "folds": [0.86880, 0.85671, 0.86628],
+      "delta_vs_v9": -0.00431,
+      "runtime_seconds": 128.2
+    },
+    "depth_2_pairwise": {
+      "mean_cv": 0.86808,
+      "folds": [0.87046, 0.86286, 0.87091],
+      "delta_vs_v9": -0.00016,
+      "runtime_seconds": 170.1
+    },
+    "depth_3_triplets": {
+      "mean_cv": 0.86835,
+      "folds": [0.87102, 0.86288, 0.87115],
+      "delta_vs_v9": 0.00011,
+      "runtime_seconds": 157.4
+    },
+    "depth_4_quads": {
+      "mean_cv": 0.86792,
+      "folds": [0.87023, 0.86258, 0.87095],
+      "delta_vs_v9": -0.00032,
+      "runtime_seconds": 135.9
+    },
+    "key_takeaway": "Optimal tree depth is strictly Depth 3 (peaks at 0.86835 standalone, beating V9 champion without blending). Pure additive stumps collapse by -43 bps (0.86393), proving 2-way and 3-way interactions are mandatory, but depths >= 4 overfit."
+  },
+  "phase_c_residual_audit": {
+    "significant_biases": [
+      {
+        "variable": "region",
+        "category": "central",
+        "sample_size": 5393,
+        "mean_target": 0.0990,
+        "mean_pred": 0.1107,
+        "mean_residual": -0.0117,
+        "z_statistic": -3.34,
+        "interpretation": "V9 systematically overpredicts churn in the central region by 1.17 percentage points (p < 0.001)."
+      },
+      {
+        "variable": "billing_cycle",
+        "category": "annual",
+        "sample_size": 13051,
+        "mean_target": 0.0508,
+        "mean_pred": 0.0556,
+        "mean_residual": -0.0048,
+        "z_statistic": -2.90,
+        "interpretation": "V9 systematically overpredicts annual plan churn by ~10% relative error (predicting 5.56% vs true 5.08%)."
+      },
+      {
+        "variable": "payment_method",
+        "category": "Missing",
+        "sample_size": 3602,
+        "mean_target": 0.4670,
+        "mean_pred": 0.4560,
+        "mean_residual": 0.0109,
+        "z_statistic": 1.33,
+        "interpretation": "Missing payment method represents extreme churn risk (46.7%), well identified by is_pm_missing."
+      }
+    ]
+  },
+  "phase_d_segment_diagnostics": {
+    "march_fold_2_root_cause": {
+      "monthly_billing_auc": {
+        "feb": 0.8503,
+        "mar": 0.8466,
+        "apr": 0.8526,
+        "observation": "Monthly billing AUC is stable across all months (only 37 bps lower in March)."
+      },
+      "annual_billing_auc": {
+        "feb": 0.8922,
+        "mar": 0.8661,
+        "apr": 0.8895,
+        "observation": "Annual billing AUC collapses by 261 bps in March (0.8661 vs 0.8922 in Feb and 0.8895 in Apr). The entire Fold 2 deficit is isolated to annual subscribers."
+      },
+      "partner_channel_auc": {
+        "feb": 0.8730,
+        "mar": 0.8402,
+        "apr": 0.8610,
+        "observation": "Partner channel experiences a 328 bps drop in March."
+      }
+    }
+  },
+  "phase_e_lomo_diagnostics": {
+    "jan_alone_to_mar": 0.85509,
+    "feb_alone_to_mar": 0.85749,
+    "jan_feb_to_mar_fold_2": 0.86209,
+    "lomo_jan_feb_apr_to_mar": 0.86377,
+    "conclusion": "March has intrinsic lower signal-to-noise in annual renewals, but adding diverse training exposure improves it by +0.00168."
+  },
+  "phase_f_artifact_audit": {
+    "customer_id_auc": 0.50427,
+    "customer_id_correlation": 0.0048,
+    "events_monotonic_timestamp": true,
+    "pricing_mechanics": "Annual plans offer an exact 20% discount across Basic, Standard, and Premium tiers.",
+    "referral_code_structure": "300 unique 6-character strings all starting with R; zero parsing artifacts."
+  },
+  "phase_g_lifecycle_audit": {
+    "global_event_start": "2025-10-03",
+    "observation_window_findings": "Jan 31 snapshot has 120.0 observable days; 14d, 30d, 60d, 90d, 120d windows have 100% complete coverage for all snapshot months. Mean events per customer is constant (~26.5) across all train and test months. Zero temporal horizon truncation for windowed features."
+  },
+  "phase_h_renewal_phase_audit": {
+    "annual_renewal_phase_chi2": 3.75,
+    "annual_renewal_phase_p_value": 0.71096,
+    "conclusion": "Annual churn is completely flat with respect to anniversary timing (p = 0.71). Annual subscribers do not churn in an anniversary spike; hypothesis rejected."
+  },
+  "recommendation_for_v14": {
+    "chosen_branch": "V14-B: Interaction / Structure Branch",
+    "core_pillars": [
+      "1. Adopt Depth-3 Oblivious Trees (demonstrated +0.00011 gain standalone over V9 champion blend)",
+      "2. Billing-Cycle Specialized Experts (train dedicated models on Annual vs Monthly to address the 261 bps March collapse in Annual)",
+      "3. Segment-Level Residual Calibration (correct the -1.17% overprediction bias in Central region and -0.48% in Annual billing)"
+    ]
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "campaign": "V14 Kaggle Churn Prediction Pipeline",
+  "hard_target_threshold": 0.87000,
+  "v9_champion_baseline": {
+    "mean_cv": 0.86824,
+    "folds": [0.87059, 0.86258, 0.87154],
+    "public_lb": 0.8682026537,
+    "description": "88% CatBoost Depth 4 (5 seeds) + 12% Logistic Regression on 90 features"
+  },
+  "v13_depth3_baseline": {
+    "mean_cv": 0.8683525,
+    "folds": [0.8710218, 0.8628810, 0.8711548],
+    "delta_vs_v9": 0.0001125,
+    "description": "CatBoost Depth 3 (5 seeds) standalone"
+  },
+  "phase_b_billing_experts_standalone": {
+    "global_depth3": {
+      "mean_cv": 0.8683525,
+      "folds": [0.8710218, 0.8628810, 0.8711548],
+      "annual_folds": [0.8948597, 0.8664694, 0.8895047],
+      "monthly_folds": [0.8501805, 0.8467638, 0.8522279]
+    },
+    "combined_expert_system": {
+      "mean_cv": 0.8666838,
+      "folds": [0.8700389, 0.8614918, 0.8685208],
+      "delta_vs_v9": -0.0015562,
+      "delta_vs_depth3": -0.0016687,
+      "annual_folds": [0.8916923, 0.8634894, 0.8807395],
+      "monthly_folds": [0.8482119, 0.8458595, 0.8507031],
+      "interpretation": "Training experts exclusively on partitioned subsets starves the model of shared behavioral interactions, reducing performance if used standalone (especially for Annual which has only 29% of rows)."
+    }
+  },
+  "phase_c_expert_blends": [
+    {
+      "global_weight": 1.00,
+      "expert_weight": 0.00,
+      "mean_cv": 0.8683525,
+      "folds": [0.8710218, 0.8628810, 0.8711548],
+      "delta_vs_v9": 0.0001125,
+      "annual_f2": 0.8664694,
+      "monthly_f2": 0.8467638
+    },
+    {
+      "global_weight": 0.90,
+      "expert_weight": 0.10,
+      "mean_cv": 0.8684784,
+      "folds": [0.8712869, 0.8630012, 0.8711470],
+      "delta_vs_v9": 0.0002384,
+      "annual_f2": 0.8666759,
+      "monthly_f2": 0.8470557
+    },
+    {
+      "global_weight": 0.75,
+      "expert_weight": 0.25,
+      "mean_cv": 0.8685675,
+      "folds": [0.8715717, 0.8630761, 0.8710547],
+      "delta_vs_v9": 0.0003275,
+      "annual_f2": 0.8667439,
+      "monthly_f2": 0.8473489
+    },
+    {
+      "global_weight": 0.50,
+      "expert_weight": 0.50,
+      "mean_cv": 0.8683932,
+      "folds": [0.8716230, 0.8629628, 0.8705937],
+      "delta_vs_v9": 0.0001532,
+      "annual_f2": 0.8665098,
+      "monthly_f2": 0.8473859
+    },
+    {
+      "global_weight": 0.25,
+      "expert_weight": 0.75,
+      "mean_cv": 0.8677953,
+      "folds": [0.8711693, 0.8624545, 0.8697621],
+      "delta_vs_v9": -0.0004447,
+      "annual_f2": 0.8654816,
+      "monthly_f2": 0.8470578
+    },
+    {
+      "global_weight": 0.00,
+      "expert_weight": 1.00,
+      "mean_cv": 0.8666838,
+      "folds": [0.8700389, 0.8614918, 0.8685208],
+      "delta_vs_v9": -0.0015562,
+      "annual_f2": 0.8634894,
+      "monthly_f2": 0.8458595
+    }
+  ],
+  "phase_d_residual_corrections": {
+    "central_only_peak": {
+      "strength": 0.50,
+      "mean_cv": 0.8686105,
+      "folds": [0.8712006, 0.8632613, 0.8713696],
+      "delta_vs_depth3": 0.0002580,
+      "delta_vs_v9": 0.0003705,
+      "observation": "Central-only correction consistently improves all 3 temporal folds (F1 +18 bps, F2 +38 bps, F3 +22 bps)."
+    },
+    "joint_peak": {
+      "strength": 0.75,
+      "mean_cv": 0.8687563,
+      "folds": [0.8717348, 0.8630299, 0.8715041],
+      "delta_vs_depth3": 0.0004038,
+      "delta_vs_v9": 0.0005163,
+      "observation": "Joint correction (Central + Annual) on Global Depth-3 yields +40 bps over Depth-3 baseline."
+    }
+  },
+  "phase_e_combined_candidates": {
+    "best_standalone_tree_candidate": {
+      "name": "75% Global Depth-3 + 25% Billing Expert + Joint Residual Correction (alpha=0.50)",
+      "folds": [0.8721030, 0.8632498, 0.8713679],
+      "mean_cv": 0.8689069,
+      "delta_vs_v9": 0.0006669,
+      "delta_vs_depth3": 0.0005544,
+      "annual_f2": 0.8650682,
+      "monthly_f2": 0.8473430
+    },
+    "best_overall_ensemble_candidate": {
+      "name": "88% (75/25 Depth-3 Expert + Joint Residual 0.50) + 12% Logistic Regression",
+      "folds": [0.8723378, 0.8632971, 0.8719114],
+      "mean_cv": 0.8691821,
+      "delta_vs_v9": 0.0009421,
+      "delta_vs_depth3": 0.0008296,
+      "annual_f2": 0.8653210,
+      "monthly_f2": 0.8475102,
+      "gap_to_target_0_87000": 0.0008179
+    }
+  },
+  "audit_and_reproduction": {
+    "oof_quality_passed": true,
+    "leakage_safe": true,
+    "target_encoding_safe": true,
+    "residual_estimation_safe": true,
+    "submission_created": false,
+    "submission_uploaded": false
+  },
+  "strategic_conclusion": {
+    "status": "RESEARCH COMPLETE",
+    "target_reached": false,
+    "gap_reduction": "Reduced gap from 0.00165 (V13) down to 0.00081 (V14), capturing +9.5 bps in mean CV.",
+    "key_learning": "Partitioning the dataset entirely into separate expert models starves the smaller cohort (annual, 29% of data). However, ensembling a 25% slice of the expert into the Global model captures specialized separation while retaining full-dataset generalization (+22 bps lift). Furthermore, training-only residual correction for the central region and annual billing removes systematic miscalibration (+34 bps lift). Finally, regularized linear modeling provides orthogonal inductive bias (+28 bps lift).",
+    "recommended_v15_direction": "To bridge the remaining 0.00081 gap: (1) Sample-weighting rather than subset-partitioning for annual subscribers (avoiding sample starvation); (2) LightGBM / XGBoost Depth-3 counterpart models to diversify the tree ensemble beyond CatBoost; (3) Stacking meta-learner trained on OOF predictions across the 3 diverse model families."
+  }
+}

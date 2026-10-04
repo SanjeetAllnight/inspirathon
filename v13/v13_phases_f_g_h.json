@@ -1,0 +1,239 @@
+{
+  "customer_id_auc": 0.5042731861426958,
+  "customer_id_correlations": {
+    "corr_with_churn": 0.004802396680913986,
+    "corr_with_signup_date": -0.008036848210660122,
+    "corr_with_snapshot_date": -0.004958832887743805
+  },
+  "events_timestamp_sorted": true,
+  "missingness_audit": {
+    "age_band": {
+      "null_count": 3636,
+      "pct_null": 6.0600000000000005,
+      "churn_when_null": 0.11221122112211221,
+      "churn_when_present": 0.11991696827762402,
+      "diff": -0.007705747155511811
+    },
+    "payment_method": {
+      "null_count": 4757,
+      "pct_null": 7.928333333333333,
+      "churn_when_null": 0.46394786630229135,
+      "churn_when_present": 0.08978513114783773,
+      "diff": 0.37416273515445364
+    },
+    "referral_code": {
+      "null_count": 45554,
+      "pct_null": 75.92333333333333,
+      "churn_when_null": 0.11871624884752162,
+      "churn_when_present": 0.12176381005122525,
+      "diff": -0.0030475612037036276
+    },
+    "monthly_price": {
+      "null_count": 0,
+      "pct_null": 0.0
+    },
+    "num_devices": {
+      "null_count": 0,
+      "pct_null": 0.0
+    },
+    "family_sharing": {
+      "null_count": 0,
+      "pct_null": 0.0
+    }
+  },
+  "price_by_plan_billing": [
+    {
+      "plan": "basic",
+      "billing_cycle": "annual",
+      "count": 5144,
+      "min": 5.01,
+      "mean": 7.604300155520995,
+      "max": 9.04,
+      "std": 0.7255167696456868
+    },
+    {
+      "plan": "basic",
+      "billing_cycle": "monthly",
+      "count": 21952,
+      "min": 6.11,
+      "mean": 9.493704901603499,
+      "max": 11.26,
+      "std": 0.9101049850394007
+    },
+    {
+      "plan": "premium",
+      "billing_cycle": "annual",
+      "count": 5469,
+      "min": 12.72,
+      "mean": 18.97948070945328,
+      "max": 22.38,
+      "std": 1.8468161042650468
+    },
+    {
+      "plan": "premium",
+      "billing_cycle": "monthly",
+      "count": 6446,
+      "min": 16.1,
+      "mean": 23.734109525287,
+      "max": 28.02,
+      "std": 2.3262296259987694
+    },
+    {
+      "plan": "standard",
+      "billing_cycle": "annual",
+      "count": 6778,
+      "min": 8.24,
+      "mean": 12.156605193272352,
+      "max": 14.21,
+      "std": 1.1547769399108463
+    },
+    {
+      "plan": "standard",
+      "billing_cycle": "monthly",
+      "count": 14211,
+      "min": 10.04,
+      "mean": 15.187816480191401,
+      "max": 18.26,
+      "std": 1.4688866979016342
+    }
+  ],
+  "negative_account_ages": 0,
+  "referral_code_structure": {
+    "unique_codes": 300,
+    "lengths": [
+      6
+    ],
+    "prefixes": [
+      "RE",
+      "R6",
+      "RF",
+      "RL",
+      "R7",
+      "RG",
+      "RJ",
+      "RC",
+      "RK",
+      "R9",
+      "R4",
+      "RU",
+      "RX",
+      "R2",
+      "RS",
+      "RP",
+      "R3",
+      "RB",
+      "RT",
+      "RD",
+      "RQ",
+      "RM",
+      "RN",
+      "RR",
+      "RH",
+      "RV",
+      "RW",
+      "RZ",
+      "RA",
+      "RY",
+      "R5",
+      "R8"
+    ]
+  },
+  "lookback_audit": {
+    "2026-01-31": {
+      "max_days_history": 119.99980324074075,
+      "mean_events_per_cust": 26.709864603481623
+    },
+    "2026-02-28": {
+      "max_days_history": 147.99980324074073,
+      "mean_events_per_cust": 26.305335968379445
+    },
+    "2026-03-31": {
+      "max_days_history": 178.99980324074073,
+      "mean_events_per_cust": 26.523511389369922
+    },
+    "2026-04-30": {
+      "max_days_history": 208.99980324074073,
+      "mean_events_per_cust": 26.566461891581717
+    },
+    "2026-05-31": {
+      "max_days_history": 239.99980324074073,
+      "mean_events_per_cust": 25.49072689201316
+    },
+    "2026-06-30": {
+      "max_days_history": 269.99980324074073,
+      "mean_events_per_cust": 25.619245812857287
+    }
+  },
+  "annual_renewal_phase": [
+    {
+      "renewal_bucket": "0-15d",
+      "count": 500,
+      "mean_churn": 0.04
+    },
+    {
+      "renewal_bucket": "16-30d",
+      "count": 538,
+      "mean_churn": 0.04460966542750929
+    },
+    {
+      "renewal_bucket": "31-60d",
+      "count": 1130,
+      "mean_churn": 0.04513274336283186
+    },
+    {
+      "renewal_bucket": "61-90d",
+      "count": 1209,
+      "mean_churn": 0.05459057071960298
+    },
+    {
+      "renewal_bucket": "91-180d",
+      "count": 4016,
+      "mean_churn": 0.04930278884462151
+    },
+    {
+      "renewal_bucket": "181-270d",
+      "count": 5686,
+      "mean_churn": 0.05276116778051354
+    },
+    {
+      "renewal_bucket": "270d+",
+      "count": 4312,
+      "mean_churn": 0.05287569573283859
+    }
+  ],
+  "monthly_cycle_phase": [
+    {
+      "cycle_bucket": "0-3d",
+      "count": 4014,
+      "mean_churn": 0.15520677628300947
+    },
+    {
+      "cycle_bucket": "4-7d",
+      "count": 5296,
+      "mean_churn": 0.14180513595166164
+    },
+    {
+      "cycle_bucket": "8-14d",
+      "count": 11399,
+      "mean_churn": 0.1358013860864988
+    },
+    {
+      "cycle_bucket": "15-21d",
+      "count": 9520,
+      "mean_churn": 0.1540966386554622
+    },
+    {
+      "cycle_bucket": "22-30d",
+      "count": 12380,
+      "mean_churn": 0.15274636510500808
+    }
+  ],
+  "chi2_annual": {
+    "chi2": 3.74636021946448,
+    "p_value": 0.7109553639277972
+  },
+  "chi2_monthly": {
+    "chi2": 21.682279713796408,
+    "p_value": 0.00023181754020000581
+  }
+}

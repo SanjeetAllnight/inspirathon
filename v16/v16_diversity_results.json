@@ -1,0 +1,44 @@
+{
+  "behavior_lifecycle_d3": {
+    "name": "Behavior + Lifecycle Specialist (Depth 3)",
+    "pearson_corr_v15": 0.9801815335329185,
+    "spearman_corr_v15": 0.980273916463086,
+    "residual_corr_v15": 0.992895750529758,
+    "mean_cv": 0.8637913033780492
+  },
+  "behavior_lifecycle_d2": {
+    "name": "Behavior + Lifecycle Specialist (Depth 2)",
+    "pearson_corr_v15": 0.9788438320995649,
+    "spearman_corr_v15": 0.9793279385466858,
+    "residual_corr_v15": 0.9923768145583596,
+    "mean_cv": 0.8645188011401509
+  },
+  "profile_billing_d3": {
+    "name": "Profile + Billing Specialist (Depth 3)",
+    "pearson_corr_v15": 0.8671356325500259,
+    "spearman_corr_v15": 0.8274816844315924,
+    "residual_corr_v15": 0.9584885917314624,
+    "mean_cv": 0.814960930192235
+  },
+  "profile_billing_d2": {
+    "name": "Profile + Billing Specialist (Depth 2)",
+    "pearson_corr_v15": 0.8659198875051941,
+    "spearman_corr_v15": 0.827794619894405,
+    "residual_corr_v15": 0.9581866239496865,
+    "mean_cv": 0.8148270374995376
+  },
+  "referral_behavior_d3": {
+    "name": "Referral + Behavior Specialist (Depth 3)",
+    "pearson_corr_v15": 0.9083310530126958,
+    "spearman_corr_v15": 0.8813261759804204,
+    "residual_corr_v15": 0.9699439441462057,
+    "mean_cv": 0.8438020627968226
+  },
+  "referral_behavior_d2": {
+    "name": "Referral + Behavior Specialist (Depth 2)",
+    "pearson_corr_v15": 0.9052223338836095,
+    "spearman_corr_v15": 0.878846046868286,
+    "residual_corr_v15": 0.9689582871004604,
+    "mean_cv": 0.8432439341401322
+  }
+}

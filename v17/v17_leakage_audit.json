@@ -1,0 +1,110 @@
+{
+  "audit_status": "PASSED",
+  "leakage_safe_architecture": {
+    "outer_temporal_folds": {
+      "fold_1": {
+        "train": "Jan",
+        "val": "Feb",
+        "train_rows": 14993,
+        "val_rows": 15180,
+        "expected_val": 4905
+      },
+      "fold_2": {
+        "train": "Jan-Feb",
+        "val": "Mar",
+        "train_rows": 30173,
+        "val_rows": 15014,
+        "expected_val": 4955
+      },
+      "fold_3": {
+        "train": "Jan-Mar",
+        "val": "Apr",
+        "train_rows": 45187,
+        "val_rows": 14813,
+        "expected_val": 4506
+      }
+    },
+    "inner_oof_strategy": {
+      "fold_1": "5-fold StratifiedKFold on Jan (14,993 rows) generating 100% out-of-fold meta-training inputs",
+      "fold_2": "5-fold StratifiedKFold on Jan-Feb (30,173 rows) generating 100% out-of-fold meta-training inputs",
+      "fold_3": "5-fold StratifiedKFold on Jan-Mar (45,187 rows) generating 100% out-of-fold meta-training inputs"
+    },
+    "target_encoding_integrity": "All target encodings fitted strictly on inner-training folds for inner OOF, and on outer-training folds for outer validation. Zero validation rows contaminated TE mappings.",
+    "preprocessing_integrity": "Imputers, scalers, and frequency maps fitted strictly on inner-train folds for inner OOF, and outer-train folds for outer validation.",
+    "meta_model_training_integrity": "Meta-learners trained strictly on inner OOF predictions (zero in-sample training predictions used). Outer validation rows completely unseen by meta-model until inference."
+  },
+  "verification_checks": {
+    "outer_val_target_used_by_base_models": false,
+    "outer_val_target_used_by_meta_model": false,
+    "inner_val_target_used_by_inner_base_models": false,
+    "meta_model_trained_on_insample_predictions": false,
+    "target_encoding_leakage_detected": false,
+    "preprocessing_outer_val_leakage_detected": false,
+    "test_set_labels_used": false,
+    "test_set_target_information_leaked": false,
+    "missing_meta_predictions": false,
+    "duplicate_predictions": false,
+    "submission_file_created": false,
+    "submission_uploaded_to_kaggle": false
+  },
+  "row_count_integrity": {
+    "total_train_rows": 60000,
+    "total_test_rows": 40000,
+    "outer_train_counts_verified": [
+      false,
+      false,
+      false
+    ],
+    "outer_val_counts_verified": [
+      false,
+      false,
+      false
+    ],
+    "nan_counts_in_oof_predictions": {
+      "f1_y_tr": 0,
+      "f1_y_vl": 0,
+      "f1_tr_cat": 0,
+      "f1_tr_lgb": 0,
+      "f1_tr_xgb": 0,
+      "f1_tr_lr": 0,
+      "f1_tr_sp": 0,
+      "f1_vl_cat": 0,
+      "f1_vl_lgb": 0,
+      "f1_vl_xgb": 0,
+      "f1_vl_lr": 0,
+      "f1_vl_sp": 0,
+      "f2_y_tr": 0,
+      "f2_y_vl": 0,
+      "f2_tr_cat": 0,
+      "f2_tr_lgb": 0,
+      "f2_tr_xgb": 0,
+      "f2_tr_lr": 0,
+      "f2_tr_sp": 0,
+      "f2_vl_cat": 0,
+      "f2_vl_lgb": 0,
+      "f2_vl_xgb": 0,
+      "f2_vl_lr": 0,
+      "f2_vl_sp": 0,
+      "f3_y_tr": 0,
+      "f3_y_vl": 0,
+      "f3_tr_cat": 0,
+      "f3_tr_lgb": 0,
+      "f3_tr_xgb": 0,
+      "f3_tr_lr": 0,
+      "f3_tr_sp": 0,
+      "f3_vl_cat": 0,
+      "f3_vl_lgb": 0,
+      "f3_vl_xgb": 0,
+      "f3_vl_lr": 0,
+      "f3_vl_sp": 0
+    }
+  },
+  "hard_target_decision": {
+    "hard_target": 0.87,
+    "best_v17_stack_score": 0.8690868,
+    "v15_champion_score": 0.8693581,
+    "target_met": false,
+    "submission_permitted": false,
+    "action_taken": "No submission generated or submitted. Full research report generated."
+  }
+}

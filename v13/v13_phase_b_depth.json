@@ -1,0 +1,76 @@
+{
+  "depth_sweep": {
+    "depth_1": {
+      "depth": 1,
+      "single_seed_mean": 0.8638445332553442,
+      "single_seed_folds": [
+        0.8687226097256038,
+        0.8568035303399397,
+        0.8660074597004889
+      ],
+      "ensemble_mean": 0.8639296077955002,
+      "ensemble_folds": [
+        0.8688012642297822,
+        0.8567118294552959,
+        0.8662757297014224
+      ],
+      "delta_vs_v9_champion": -0.004310392204499802,
+      "runtime_seconds": 128.24830293655396
+    },
+    "depth_2": {
+      "depth": 2,
+      "single_seed_mean": 0.8678396298119923,
+      "single_seed_folds": [
+        0.8699545346120945,
+        0.8627675878755536,
+        0.8707967669483285
+      ],
+      "ensemble_mean": 0.8680761415870731,
+      "ensemble_folds": [
+        0.8704579851286437,
+        0.8628649299910892,
+        0.8709055096414865
+      ],
+      "delta_vs_v9_champion": -0.00016385841292687608,
+      "runtime_seconds": 170.13393115997314
+    },
+    "depth_3": {
+      "depth": 3,
+      "single_seed_mean": 0.8676187829220408,
+      "single_seed_folds": [
+        0.8703930668882016,
+        0.8623667722441558,
+        0.8700965096337646
+      ],
+      "ensemble_mean": 0.8683525487375978,
+      "ensemble_folds": [
+        0.8710218094031718,
+        0.8628809889695406,
+        0.871154847840081
+      ],
+      "delta_vs_v9_champion": 0.00011254873759780626,
+      "runtime_seconds": 157.44489455223083
+    },
+    "depth_4": {
+      "depth": 4,
+      "single_seed_mean": 0.867224314916541,
+      "single_seed_folds": [
+        0.8694353531947094,
+        0.8620854930600508,
+        0.8701520984948624
+      ],
+      "ensemble_mean": 0.867920521427309,
+      "ensemble_folds": [
+        0.870225579061657,
+        0.8625834860995129,
+        0.8709524991207572
+      ],
+      "delta_vs_v9_champion": -0.0003194785726909899,
+      "runtime_seconds": 135.8880786895752
+    }
+  },
+  "gap_d4_minus_d1": 0.003990913631808812,
+  "gap_d4_minus_d2": -0.0001556201597641138,
+  "signal_characterization": "SMOOTH/ADDITIVE (depth 1/2 is close to depth 4, signal is largely additive)",
+  "recommended_direction": "V14-A: Smooth-model branch (spline-GAM, small regularized MLP, blend vs V9)"
+}

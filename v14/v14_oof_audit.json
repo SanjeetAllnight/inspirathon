@@ -1,0 +1,29 @@
+{
+  "audit_status": "PASSED",
+  "folds_verified": {
+    "fold_1": {
+      "fold_name": "Fold 1 (Jan -> Feb)",
+      "row_count": 15180,
+      "nan_count": 0,
+      "bounds_valid": true,
+      "partition_exact": true
+    },
+    "fold_2": {
+      "fold_name": "Fold 2 (Jan-Feb -> Mar)",
+      "row_count": 15014,
+      "nan_count": 0,
+      "bounds_valid": true,
+      "partition_exact": true
+    },
+    "fold_3": {
+      "fold_name": "Fold 3 (Jan-Mar -> Apr)",
+      "row_count": 14813,
+      "nan_count": 0,
+      "bounds_valid": true,
+      "partition_exact": true
+    }
+  },
+  "leakage_safe": true,
+  "target_encoding_safe": true,
+  "residual_correction_safe": true
+}

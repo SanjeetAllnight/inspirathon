@@ -1,0 +1,188 @@
+{
+  "base_model_performance": {
+    "cat": {
+      "name": "CatBoost Depth-3",
+      "folds": [
+        0.8710218094031718,
+        0.8628809889695406,
+        0.871154847840081
+      ],
+      "mean_auc": 0.8683525487375978
+    },
+    "lgb": {
+      "name": "LightGBM Depth-3",
+      "folds": [
+        0.871517857142857,
+        0.8621028285214046,
+        0.870585314291611
+      ],
+      "mean_auc": 0.8680686666519576
+    },
+    "xgb": {
+      "name": "XGBoost Depth-3",
+      "folds": [
+        0.8703994620648812,
+        0.8621357288387959,
+        0.8707767382860623
+      ],
+      "mean_auc": 0.8677706430632464
+    },
+    "sp": {
+      "name": "Billing Specialist",
+      "folds": [
+        0.8705426235441205,
+        0.8615041580401128,
+        0.8692230142623381
+      ],
+      "mean_auc": 0.8670899319488571
+    },
+    "lr": {
+      "name": "Logistic Regression",
+      "folds": [
+        0.8590971079818386,
+        0.847063348140535,
+        0.857223805405466
+      ],
+      "mean_auc": 0.8544614205092799
+    }
+  },
+  "outer_validation_prediction_correlation": {
+    "cat_vs_lgb": 0.9867745282734033,
+    "cat_vs_xgb": 0.986585076424266,
+    "cat_vs_sp": 0.9856563801644752,
+    "cat_vs_lr": 0.9249582418506677,
+    "lgb_vs_xgb": 0.9981891362747206,
+    "lgb_vs_sp": 0.9808813541837808,
+    "lgb_vs_lr": 0.93146397525455,
+    "xgb_vs_sp": 0.9806677731276977,
+    "xgb_vs_lr": 0.9316807579542916,
+    "sp_vs_lr": 0.9163138005010243
+  },
+  "outer_validation_residual_correlation": {
+    "cat_vs_lgb": 0.995138562873139,
+    "cat_vs_xgb": 0.9950715866065738,
+    "cat_vs_sp": 0.9947307264089221,
+    "cat_vs_lr": 0.9734542622727097,
+    "lgb_vs_xgb": 0.9993425562068947,
+    "lgb_vs_sp": 0.9930455051270635,
+    "lgb_vs_lr": 0.976041227899706,
+    "xgb_vs_sp": 0.9929682511729888,
+    "xgb_vs_lr": 0.9761068525918759,
+    "sp_vs_lr": 0.9706344164471594
+  },
+  "disagreement_statistics": {
+    "cat_vs_lgb": {
+      "mean_absolute_difference": 0.013932958113775078,
+      "max_absolute_difference": 0.365515715027272,
+      "std_absolute_difference": 0.023648905029636683,
+      "p95_absolute_difference": 0.059161767375805766
+    },
+    "cat_vs_xgb": {
+      "mean_absolute_difference": 0.01402294020559155,
+      "max_absolute_difference": 0.4079125159647623,
+      "std_absolute_difference": 0.02383146383076486,
+      "p95_absolute_difference": 0.05897221209898206
+    },
+    "cat_vs_sp": {
+      "mean_absolute_difference": 0.013642680132884279,
+      "max_absolute_difference": 0.5148037550654927,
+      "std_absolute_difference": 0.02513000897954932,
+      "p95_absolute_difference": 0.055181911697574394
+    },
+    "cat_vs_lr": {
+      "mean_absolute_difference": 0.03455597193500895,
+      "max_absolute_difference": 0.9823906368901746,
+      "std_absolute_difference": 0.05486710833493365,
+      "p95_absolute_difference": 0.13800053493449194
+    },
+    "lgb_vs_xgb": {
+      "mean_absolute_difference": 0.0050534004644449985,
+      "max_absolute_difference": 0.20875333447663436,
+      "std_absolute_difference": 0.008743750169930864,
+      "p95_absolute_difference": 0.02110279428909027
+    },
+    "lgb_vs_sp": {
+      "mean_absolute_difference": 0.01674637999627482,
+      "max_absolute_difference": 0.5933689083400265,
+      "std_absolute_difference": 0.02827745274318055,
+      "p95_absolute_difference": 0.0685340225045213
+    },
+    "lgb_vs_lr": {
+      "mean_absolute_difference": 0.03354311657681049,
+      "max_absolute_difference": 0.9774981464557025,
+      "std_absolute_difference": 0.051693209132262496,
+      "p95_absolute_difference": 0.13305301118258425
+    },
+    "xgb_vs_sp": {
+      "mean_absolute_difference": 0.016878363874405517,
+      "max_absolute_difference": 0.5894799030192457,
+      "std_absolute_difference": 0.02842529991995954,
+      "p95_absolute_difference": 0.06832424022650391
+    },
+    "xgb_vs_lr": {
+      "mean_absolute_difference": 0.03353419315258237,
+      "max_absolute_difference": 0.9796986169470578,
+      "std_absolute_difference": 0.051606176865927285,
+      "p95_absolute_difference": 0.13384287742912737
+    },
+    "sp_vs_lr": {
+      "mean_absolute_difference": 0.036853630280395615,
+      "max_absolute_difference": 0.967111565685026,
+      "std_absolute_difference": 0.05740096552142231,
+      "p95_absolute_difference": 0.1454820918478301
+    }
+  },
+  "per_fold_correlations": [
+    {
+      "fold": 1,
+      "cat_vs_lgb": 0.9837961563805762,
+      "cat_vs_xgb": 0.9835702434404292,
+      "cat_vs_sp": 0.9824851660655565,
+      "cat_vs_lr": 0.9241297467078908,
+      "lgb_vs_xgb": 0.997662779182743,
+      "lgb_vs_sp": 0.9753496107251466,
+      "lgb_vs_lr": 0.9319996851809729,
+      "xgb_vs_sp": 0.9754220286212119,
+      "xgb_vs_lr": 0.9321314733580235,
+      "sp_vs_lr": 0.9122890345864417
+    },
+    {
+      "fold": 2,
+      "cat_vs_lgb": 0.9858071764031622,
+      "cat_vs_xgb": 0.9857774428370404,
+      "cat_vs_sp": 0.9849630871442933,
+      "cat_vs_lr": 0.9251197524274937,
+      "lgb_vs_xgb": 0.9982735094611391,
+      "lgb_vs_sp": 0.9814912474096509,
+      "lgb_vs_lr": 0.9323206262094165,
+      "xgb_vs_sp": 0.9813512123904577,
+      "xgb_vs_lr": 0.9338806836053333,
+      "sp_vs_lr": 0.9188988577660773
+    },
+    {
+      "fold": 3,
+      "cat_vs_lgb": 0.9910870967149454,
+      "cat_vs_xgb": 0.9905818887245741,
+      "cat_vs_sp": 0.9896353039664275,
+      "cat_vs_lr": 0.9257788292916628,
+      "lgb_vs_xgb": 0.9986943373842707,
+      "lgb_vs_sp": 0.9860691708577223,
+      "lgb_vs_lr": 0.9301523540546575,
+      "xgb_vs_sp": 0.9852800239779482,
+      "xgb_vs_lr": 0.9290170240715305,
+      "sp_vs_lr": 0.9179221542160558
+    }
+  ],
+  "inner_oof_prediction_correlation": {
+    "cat_vs_lgb": 0.9854078379561223,
+    "cat_vs_xgb": 0.9840635491115607,
+    "cat_vs_sp": 0.9832473502048343,
+    "cat_vs_lr": 0.9268318180792736,
+    "lgb_vs_xgb": 0.993057330206923,
+    "lgb_vs_sp": 0.9782616771721573,
+    "lgb_vs_lr": 0.9289638931605898,
+    "xgb_vs_sp": 0.9764521662422962,
+    "xgb_vs_lr": 0.9294673301576496,
+    "sp_vs_lr": 0.9162384274185699
+  }
+}

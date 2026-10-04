@@ -1,0 +1,14 @@
+{
+  "audit_status": "PASSED",
+  "verified_row_counts": {
+    "fold_1": 15180,
+    "fold_2": 15014,
+    "fold_3": 14813
+  },
+  "no_missing_predictions": true,
+  "no_duplicate_predictions": true,
+  "target_encoding_leakage_safe": true,
+  "training_only_fitting": true,
+  "reproducible": true,
+  "submission_prevented": true
+}

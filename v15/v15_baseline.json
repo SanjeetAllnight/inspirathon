@@ -1,0 +1,41 @@
+{
+  "baseline_name": "V15 Baseline (V14 Champion)",
+  "components": [
+    "CatBoost Depth-3 5-seed global backbone",
+    "75% Global + 25% Billing-cycle specialist blend",
+    "Leakage-safe joint residual correction (Central region + Annual billing, alpha=0.50)",
+    "Blended with 12% regularized Logistic Regression (C=0.1)"
+  ],
+  "feature_count": 90,
+  "folds": [
+    {
+      "fold": 1,
+      "train_period": "Jan 2026",
+      "val_period": "Feb 2026",
+      "score": 0.8723378
+    },
+    {
+      "fold": 2,
+      "train_period": "Jan-Feb 2026",
+      "val_period": "Mar 2026",
+      "score": 0.8632971
+    },
+    {
+      "fold": 3,
+      "train_period": "Jan-Mar 2026",
+      "val_period": "Apr 2026",
+      "score": 0.8719114
+    }
+  ],
+  "mean_temporal_cv": 0.8691821,
+  "v9_champion_cv": 0.86824,
+  "delta_vs_v9": 0.0009421,
+  "v13_depth3_cv": 0.8683525,
+  "delta_vs_v13": 0.0008296,
+  "gap_to_target_0_87000": 0.0008179,
+  "source_artifacts": [
+    "v14/v14_results.json",
+    "v14/v14_oof_preds.npz",
+    "v14/v14_residual_results.json"
+  ]
+}

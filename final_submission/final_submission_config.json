@@ -1,0 +1,85 @@
+{
+  "competition": "inspirathon-customer-churn",
+  "checkpoint": "FINAL SUBMISSION PHASE — FREEZE AND SUBMIT",
+  "candidate": "80% V15 Champion + 20% V17 Stacked Model",
+  "validation_reference": {
+    "temporal_folds": {
+      "fold_1": 0.87282,
+      "fold_2": 0.86340,
+      "fold_3": 0.87195
+    },
+    "mean_temporal_cv": 0.86939,
+    "delta_vs_v15": 0.00003,
+    "delta_vs_v9": 0.00115
+  },
+  "weights": {
+    "v15_champion": 0.80,
+    "v17_stack": 0.20
+  },
+  "v15_architecture": {
+    "tree_component_weight": 0.88,
+    "logistic_regression_weight": 0.12,
+    "tree_blend": {
+      "v14_candidate_weight": 0.80,
+      "lightgbm_weight": 0.20
+    },
+    "v14_candidate": {
+      "catboost_depth3_weight": 0.75,
+      "specialist_weight": 0.25,
+      "residual_correction": {
+        "alpha": 0.50,
+        "delta_central": -0.01334,
+        "delta_annual": -0.00276
+      }
+    }
+  },
+  "v17_stack_architecture": {
+    "base_models": [
+      "CatBoost Depth-3 (5 seeds)",
+      "LightGBM Depth-3 (5 seeds)",
+      "XGBoost Depth-3 (5 seeds)",
+      "Billing Specialist (5 seeds on monthly + annual)",
+      "Regularized Logistic Regression (C=0.1)"
+    ],
+    "meta_learner": "Regularized Logistic Regression (C=0.1)",
+    "meta_features": [
+      "p_cat",
+      "p_lgb",
+      "p_xgb",
+      "p_sp",
+      "p_lr"
+    ],
+    "meta_coefficients": {
+      "p_cat": 1.484,
+      "p_lgb": 1.660,
+      "p_xgb": 1.491,
+      "p_sp": 1.432,
+      "p_lr": 1.068,
+      "intercept": -3.376
+    },
+    "oof_scheme": "5-Fold KFold on 60,000 training rows"
+  },
+  "features": {
+    "total_features": 90,
+    "base_features": 86,
+    "target_encodings": 4
+  },
+  "submission_file": {
+    "path": "submission.csv",
+    "rows": 40000,
+    "columns": ["customer_id", "churn"],
+    "min_probability": 0.00692,
+    "max_probability": 0.96005,
+    "mean_probability": 0.12757,
+    "std_probability": 0.17054,
+    "nan_count": 0,
+    "duplicated_ids": 0
+  },
+  "notebook_artifacts": {
+    "script": "kaggle_notebook_final.py",
+    "notebook": "kaggle_notebook_final.ipynb",
+    "builder": "build_kaggle_notebook_final.py"
+  },
+  "status": "FROZEN_AND_GENERATED",
+  "submissions_spent": 1
+}

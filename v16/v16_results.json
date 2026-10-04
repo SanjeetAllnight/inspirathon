@@ -1,0 +1,144 @@
+{
+  "campaign": "V16 Feature-View Tree Specialists",
+  "hard_target_threshold": 0.87,
+  "v9_baseline": 0.86824,
+  "v15_baseline": 0.8693562511839472,
+  "specialists": {
+    "behavior_lifecycle_d3": {
+      "view": "behavior_lifecycle",
+      "name": "Behavior + Lifecycle Specialist (Depth 3)",
+      "depth": 3,
+      "feature_count": 80,
+      "mean_cv": 0.8637913033780492,
+      "folds": [
+        0.8662459079094558,
+        0.8581090841111645,
+        0.8670189181135273
+      ],
+      "delta_vs_v15": -0.005564947805898002,
+      "delta_vs_v9": -0.004448696621950798,
+      "pearson_corr_v15": 0.9801815335329185,
+      "spearman_corr_v15": 0.980273916463086,
+      "residual_corr_v15": 0.992895750529758,
+      "runtime_seconds": 46.592100381851196
+    },
+    "behavior_lifecycle_d2": {
+      "view": "behavior_lifecycle",
+      "name": "Behavior + Lifecycle Specialist (Depth 2)",
+      "depth": 2,
+      "feature_count": 80,
+      "mean_cv": 0.8645188011401509,
+      "folds": [
+        0.8672567982167534,
+        0.8587482932188286,
+        0.8675513119848706
+      ],
+      "delta_vs_v15": -0.004837450043796321,
+      "delta_vs_v9": -0.0037211988598491175,
+      "pearson_corr_v15": 0.9788438320995649,
+      "spearman_corr_v15": 0.9793279385466858,
+      "residual_corr_v15": 0.9923768145583596,
+      "runtime_seconds": 74.54283165931702
+    },
+    "profile_billing_d3": {
+      "view": "profile_billing",
+      "name": "Profile + Billing Specialist (Depth 3)",
+      "depth": 3,
+      "feature_count": 19,
+      "mean_cv": 0.814960930192235,
+      "folds": [
+        0.8233523886293348,
+        0.8072076401207635,
+        0.814322761826607
+      ],
+      "delta_vs_v15": -0.05439532099171218,
+      "delta_vs_v9": -0.05327906980776498,
+      "pearson_corr_v15": 0.8671356325500259,
+      "spearman_corr_v15": 0.8274816844315924,
+      "residual_corr_v15": 0.9584885917314624,
+      "runtime_seconds": 117.58056735992432
+    },
+    "profile_billing_d2": {
+      "view": "profile_billing",
+      "name": "Profile + Billing Specialist (Depth 2)",
+      "depth": 2,
+      "feature_count": 19,
+      "mean_cv": 0.8148270374995376,
+      "folds": [
+        0.822903718661578,
+        0.8070428502957323,
+        0.8145345435413026
+      ],
+      "delta_vs_v15": -0.05452921368440966,
+      "delta_vs_v9": -0.05341296250046246,
+      "pearson_corr_v15": 0.8659198875051941,
+      "spearman_corr_v15": 0.827794619894405,
+      "residual_corr_v15": 0.9581866239496865,
+      "runtime_seconds": 170.78424310684204
+    },
+    "referral_behavior_d3": {
+      "view": "referral_behavior",
+      "name": "Referral + Behavior Specialist (Depth 3)",
+      "depth": 3,
+      "feature_count": 20,
+      "mean_cv": 0.8438020627968226,
+      "folds": [
+        0.843022923932355,
+        0.8375219266821163,
+        0.8508613377759964
+      ],
+      "delta_vs_v15": -0.025554188387124643,
+      "delta_vs_v9": -0.02443793720317744,
+      "pearson_corr_v15": 0.9083310530126958,
+      "spearman_corr_v15": 0.8813261759804204,
+      "residual_corr_v15": 0.9699439441462057,
+      "runtime_seconds": 93.00252103805542
+    },
+    "referral_behavior_d2": {
+      "view": "referral_behavior",
+      "name": "Referral + Behavior Specialist (Depth 2)",
+      "depth": 2,
+      "feature_count": 20,
+      "mean_cv": 0.8432439341401322,
+      "folds": [
+        0.8421274141277882,
+        0.8367513427776597,
+        0.8508530455149487
+      ],
+      "delta_vs_v15": -0.026112317043815003,
+      "delta_vs_v9": -0.0249960658598678,
+      "pearson_corr_v15": 0.9052223338836095,
+      "spearman_corr_v15": 0.878846046868286,
+      "residual_corr_v15": 0.9689582871004604,
+      "runtime_seconds": 160.6807312965393
+    }
+  },
+  "best_blend": {
+    "name": "V15 (95) + Behavior + Lifecycle Specialist (Depth 2) (5)",
+    "specialist_tag": "behavior_lifecycle_d2",
+    "w_v15": 0.95,
+    "w_specialist": 0.05,
+    "f1": 0.8726114940448773,
+    "f2": 0.8633838820562739,
+    "f3": 0.8719608205144045,
+    "mean_cv": 0.8693187322051852,
+    "delta_vs_v15": -3.751897876203003e-05,
+    "delta_vs_v9": 0.0010787322051851733
+  },
+  "winning_candidate": {
+    "name": "V15 (95) + Behavior + Lifecycle Specialist (Depth 2) (5)",
+    "specialist_tag": "behavior_lifecycle_d2",
+    "w_v15": 0.95,
+    "w_specialist": 0.05,
+    "f1": 0.8726114940448773,
+    "f2": 0.8633838820562739,
+    "f3": 0.8719608205144045,
+    "mean_cv": 0.8693187322051852,
+    "delta_vs_v15": -3.751897876203003e-05,
+    "delta_vs_v9": 0.0010787322051851733
+  },
+  "gap_to_target_0_87000": 0.0006812677948148105,
+  "submission_created": false,
+  "submission_uploaded": false,
+  "runtime_total_seconds": 663.8793804645538
+}

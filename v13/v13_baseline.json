@@ -1,0 +1,75 @@
+{
+  "pipeline_version": "V9",
+  "feature_count": 90,
+  "features": {
+    "base_features_count": 86,
+    "encoding_features_count": 4,
+    "categorical_features": [
+      "plan",
+      "billing_cycle",
+      "region",
+      "age_band",
+      "acquisition_channel",
+      "payment_method"
+    ],
+    "encodings": [
+      "ref_code_train_freq",
+      "ref_code_te (m=20.0)",
+      "act_bin_billing_te (m=15.0)",
+      "rec_bin_billing_te (m=15.0)"
+    ]
+  },
+  "models": {
+    "catboost": {
+      "depth": 4,
+      "learning_rate": 0.04,
+      "l2_leaf_reg": 1,
+      "random_strength": 1,
+      "bagging_temperature": 1,
+      "eval_metric": "AUC",
+      "boosting_type": "Plain",
+      "grow_policy": "SymmetricTree",
+      "seeds": [42, 123, 314, 555, 777]
+    },
+    "logistic_regression": {
+      "features": "86 base V7 features",
+      "preprocessor": "ColumnTransformer(SimpleImputer(median) + StandardScaler for num, OneHotEncoder for cat)",
+      "C": 0.1,
+      "max_iter": 1000,
+      "random_state": 42
+    },
+    "blend": {
+      "catboost_weight": 0.88,
+      "logistic_regression_weight": 0.12,
+      "combination_type": "probability_average"
+    }
+  },
+  "validation_protocol": {
+    "type": "3-fold forward temporal validation",
+    "fold_1": "Jan (2026-01-31) -> Feb (2026-02-28)",
+    "fold_2": "Jan-Feb (<= 2026-02-28) -> Mar (2026-03-31)",
+    "fold_3": "Jan-Mar (<= 2026-03-31) -> Apr (2026-04-30)"
+  },
+  "cv_scores": {
+    "catboost_5seed_ensemble": {
+      "mean": 0.86792,
+      "folds": [0.87023, 0.86258, 0.87095]
+    },
+    "logistic_regression": {
+      "mean": 0.85446,
+      "folds": [0.85910, 0.84706, 0.85722]
+    },
+    "champion_88_12_blend": {
+      "mean": 0.86824,
+      "folds": [0.87059, 0.86258, 0.87154]
+    }
+  },
+  "public_leaderboard": 0.8682026537,
+  "leaderboard_rank": 20,
+  "reused_artifacts": [
+    "/home/sanjeet/kaggle/inspirathon/train_v9_ensemble_and_blend.py",
+    "/home/sanjeet/kaggle/inspirathon/v9/v9_final_summary.json",
+    "/home/sanjeet/kaggle/inspirathon/v6/train_features_v6.parquet",
+    "/home/sanjeet/kaggle/inspirathon/v6/v6_final_results.json"
+  ]
+}
