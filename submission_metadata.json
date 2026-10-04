@@ -1,0 +1,69 @@
+{
+  "all_checks_passed": true,
+  "mean_cv_auc": 0.8637481071582332,
+  "fold_results": [
+    {
+      "fold": "Fold 1 (Jan -> Feb)",
+      "auc_cb_single": 0.8652256613147332,
+      "auc_cb_ens": 0.8667339359742054,
+      "auc_lgb_ens": 0.8620281141014672,
+      "auc_blend": 0.8664737283674409,
+      "cb_iters": [
+        300,
+        233,
+        227,
+        189,
+        264
+      ],
+      "lgb_iters": [
+        92,
+        110,
+        91
+      ]
+    },
+    {
+      "fold": "Fold 2 (Jan-Feb -> Mar)",
+      "auc_cb_single": 0.8570918919453105,
+      "auc_cb_ens": 0.8582374735850393,
+      "auc_lgb_ens": 0.8554797352162691,
+      "auc_blend": 0.8580432422995139,
+      "cb_iters": [
+        373,
+        416,
+        409,
+        475,
+        548
+      ],
+      "lgb_iters": [
+        114,
+        118,
+        106
+      ]
+    },
+    {
+      "fold": "Fold 3 (Jan-Mar -> Apr)",
+      "auc_cb_single": 0.8664930615273485,
+      "auc_cb_ens": 0.8665386470259127,
+      "auc_lgb_ens": 0.8632880368207979,
+      "auc_blend": 0.8667273508077452,
+      "cb_iters": [
+        270,
+        296,
+        430,
+        424,
+        308
+      ],
+      "lgb_iters": [
+        128,
+        158,
+        144
+      ]
+    }
+  ],
+  "target_cb_iters": 379,
+  "target_lgb_iters": 157,
+  "sub_path": "/home/sanjeet/kaggle/inspirathon/submission.csv",
+  "sub_mean_churn": 0.12837312620667113,
+  "sub_min_churn": 0.0012787427525997289,
+  "sub_max_churn": 0.9502441394741662
+}

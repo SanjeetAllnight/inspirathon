@@ -1,0 +1,40 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# CatBoost training artifacts & logs
+catboost_info/
+*.tmp
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Raw Competition Data
+events.csv
+train.csv
+test.csv
+sample_submission.csv
+
+# Generated submission outputs
+submission.csv
+
+# Intermediate feature & scratch parquet files
+*.parquet
+scratch/
+
+# Model binaries & checkpoints
+*.cbm
+*.pkl
+*.joblib
+*.model
+
+# OS generated files
+.DS_Store
+Thumbs.db

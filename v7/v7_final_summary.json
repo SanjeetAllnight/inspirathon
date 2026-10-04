@@ -1,0 +1,73 @@
+{
+  "benchmarks": {
+    "v5_5seed_cb_mean_cv": 0.8644795227600516,
+    "v5_folds": [0.867155, 0.858819, 0.867464],
+    "v6_5seed_cb_mean_cv": 0.8651094146510009,
+    "v6_folds": [0.867823, 0.859310, 0.868196]
+  },
+  "experiment_a_recency_weights": {
+    "uniform_baseline": {
+      "mean_cv": 0.86465,
+      "folds": [0.86650, 0.85905, 0.86839],
+      "delta": 0.0
+    },
+    "range_0.8_to_1.2": {
+      "mean_cv": 0.86416,
+      "folds": [0.86639, 0.85887, 0.86721],
+      "delta": -0.00049
+    },
+    "range_0.7_to_1.3": {
+      "mean_cv": 0.86438,
+      "folds": [0.86603, 0.85934, 0.86776],
+      "delta": -0.00027
+    },
+    "exponential_half_life_60d": {
+      "mean_cv": 0.86376,
+      "folds": [0.86670, 0.85771, 0.86686],
+      "delta": -0.00089
+    }
+  },
+  "experiment_b_model_diversity": {
+    "hist_gradient_boosting": {
+      "mean_cv": 0.86047,
+      "folds": [0.86006, 0.85667, 0.86468],
+      "correlation_with_cb": 0.9658
+    },
+    "regularized_logistic_regression": {
+      "mean_cv": 0.85446,
+      "folds": [0.85910, 0.84706, 0.85722],
+      "correlation_with_cb": 0.9305
+    },
+    "blends_with_v6_cb_ens": {
+      "cb_97_lr_3": {"mean": 0.86525, "folds": [0.86798, 0.85937, 0.86841]},
+      "cb_95_lr_5": {"mean": 0.86533, "folds": [0.86807, 0.85940, 0.86853]},
+      "cb_92_lr_8": {"mean": 0.86543, "folds": [0.86819, 0.85944, 0.86868]},
+      "cb_90_lr_10": {"mean": 0.86548, "folds": [0.86825, 0.85943, 0.86876]},
+      "cb_85_lr_15": {"mean": 0.86555, "folds": [0.86836, 0.85941, 0.86889]},
+      "cb_90_hgb_10": {"mean": 0.86524, "folds": [0.86790, 0.85954, 0.86827]},
+      "triple_cb82_lr8_hgb10": {"mean": 0.86555, "folds": [0.86826, 0.85964, 0.86874]}
+    }
+  },
+  "experiment_c_catboost_hpo": {
+    "depth_6_lr_0.04": {"mean": 0.86465, "folds": [0.86650, 0.85905, 0.86839]},
+    "depth_6_lr_0.03": {"mean": 0.86427, "folds": [0.86654, 0.85841, 0.86786]},
+    "depth_5_lr_0.04": {"mean": 0.86440, "folds": [0.86739, 0.85878, 0.86703]},
+    "depth_5_lr_0.03": {"mean": 0.86456, "folds": [0.86757, 0.85849, 0.86761]},
+    "depth_7_lr_0.03": {"mean": 0.86361, "folds": [0.86650, 0.85802, 0.86631]},
+    "depth_7_lr_0.02": {"mean": 0.86375, "folds": [0.86640, 0.85763, 0.86721]},
+    "depth_4_lr_0.04_single": {"mean": 0.86481, "folds": [0.86708, 0.85928, 0.86806]},
+    "depth_4_lr_0.04_5seed_ensemble": {
+      "mean": 0.86570,
+      "folds": [0.86840, 0.86058, 0.86811],
+      "delta_vs_v6_baseline": 0.00059,
+      "delta_vs_v5_baseline": 0.00122
+    }
+  },
+  "overall_winning_system": {
+    "name": "V7 Winning Blend (90% CatBoost Depth-4 5-Seed Ensemble + 10% Regularized Logistic Regression)",
+    "mean_cv": 0.86602,
+    "folds": [0.86879, 0.86059, 0.86869],
+    "improvement_over_v6": 0.00091,
+    "improvement_over_v5": 0.00154
+  }
+}
